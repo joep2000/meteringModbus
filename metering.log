@@ -1,5 +1,20 @@
-2021-08-02 11:12:55,172 - INFO - Started app
-2021-08-02 11:12:55,192 - INFO - Meters:
-2021-08-02 11:12:55,193 - INFO - Reloading meter map as file changed
-2021-08-02 11:12:55,251 - INFO - 	 1 <--> Warmtepomp
-2021-08-02 11:12:55,252 - INFO - 	 2 <--> Warmtepomp1f
+2021-08-02 11:28:59,518 - INFO - Started app
+2021-08-02 11:28:59,532 - INFO - Meters:
+2021-08-02 11:28:59,533 - INFO - Reloading meter map as file changed
+2021-08-02 11:28:59,570 - INFO - 	 1 <--> Warmtepomp
+2021-08-02 11:28:59,570 - INFO - 	 2 <--> Warmtepomp1f
+2021-08-02 11:28:59,578 - INFO - INFO: MQTT connected!
+2021-08-02 11:28:59,583 - INFO - INFO: RECIEVED MQTT MESSAGE: Verwarming/heating/State 1
+2021-08-02 11:29:59,636 - INFO - Collected 0 readouts
+2021-08-02 11:29:59,644 - DEBUG - Reading meter 2.
+2021-08-02 11:30:00,258 - DEBUG - Reading meter 1.
+2021-08-02 11:30:01,251 - INFO - 2021-08-02T10:29:59.637846Z Data written for 2 meters.
+2021-08-02 11:30:01,254 - INFO - MQTT published energy: 0.000
+2021-08-02 11:30:59,637 - DEBUG - Reading meter 2.
+2021-08-02 11:31:00,250 - DEBUG - Reading meter 1.
+2021-08-02 11:31:01,260 - INFO - 2021-08-02T10:30:59.636256Z Data written for 2 meters.
+2021-08-02 11:31:01,263 - INFO - MQTT published energy: 0.999
+2021-08-02 11:31:59,637 - DEBUG - Reading meter 2.
+2021-08-02 11:32:00,263 - DEBUG - Reading meter 1.
+2021-08-02 11:32:01,203 - INFO - 2021-08-02T10:31:59.636238Z Data written for 2 meters.
+2021-08-02 11:32:01,206 - INFO - MQTT published energy: 0.999

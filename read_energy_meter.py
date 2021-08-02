@@ -32,6 +32,7 @@ class DataCollector(mqtt.Client):
         self.meter_map = None
         self.meter_map_last_change = -1
 
+        self.Energy = 0
         self.TotalEnergy = 0
         self.PrevEnergy = 0
         self.HeatingEnergy = 0
@@ -66,11 +67,13 @@ class DataCollector(mqtt.Client):
 
         self.publish(topic,msg,1)
 
+        log.info('MQTT published energy: %.3f' % float(energy) )
+
         return
 
 
     def mqtt_on_connect(self, client, userdata, flags, rc):
-        print "INFO: MQTT connected!"
+        log.info("MQTT connected!")
         self.subscribe("Verwarming/heating/State", 0)
 
     def mqtt_on_message(self, client, userdata, msg):
@@ -80,7 +83,7 @@ class DataCollector(mqtt.Client):
             else:
                 self.Heating = False
         #if self.debug:
-        print("INFO: RECIEVED MQTT MESSAGE: "+msg.topic + " " + str(msg.payload))
+        log.info("RECIEVED MQTT MESSAGE: "+msg.topic + " " + str(msg.payload))
 
         return
 
@@ -188,14 +191,14 @@ class DataCollector(mqtt.Client):
                 
                 Power = datas[2]['Active power Phase 1']
                 if self.PrevEnergy != 0:
-                    Energy = (datas[2]['Import active energy'] - self.PrevEnergy) * 1000
+                    self.Energy = (datas[2]['Import active energy'] - self.PrevEnergy) * 1000
                 self.PrevEnergy = datas[2]['Import active energy']
-                self.TotalEnergy += Energy
+                self.TotalEnergy += self.Energy
 
                 if self.Heating == True:
-                    self.HeatingEnergy += Energy
+                    self.HeatingEnergy += self.Energy
                 if self.Heating == False:
-                    self.WaterEnergy += Energy
+                    self.WaterEnergy += self.Energy
                 self.SendMeterEvent(str(Power),str(self.TotalEnergy),str(self.HeatingEnergy),str(self.WaterEnergy))
 
             except Exception as e:
