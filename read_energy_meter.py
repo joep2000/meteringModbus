@@ -10,20 +10,79 @@ import time
 import yaml
 import logging
 import json
+import paho.mqtt.client as mqtt
 
 # Change working dir to the same dir as this script
 os.chdir(sys.path[0])
 
-class DataCollector:
-    def __init__(self, influx_client, meter_yaml):
+config = {
+    'mqtt_host': os.environ.get('MQTT','192.168.178.2'),
+    'mqtt_user': os.environ.get('MQTT_USER',None),
+    'mqtt_pass': os.environ.get('MQTT_PASS',None),
+    'mqtt_prefix': os.environ.get('MQTT_PREFIX','WP'),
+    'mqtt_client': os.environ.get('MQTT_CLIENT','MBmeter'),
+}
+
+class DataCollector(mqtt.Client):
+    def __init__(self, influx_client, meter_yaml, user = config['mqtt_user'], password=config['mqtt_pass'],server = config['mqtt_host'], prefix = config['mqtt_prefix'],client = config['mqtt_client']):
+
         self.influx_client = influx_client
         self.meter_yaml = meter_yaml
         self.max_iterations = None  # run indefinitely by default
         self.meter_map = None
         self.meter_map_last_change = -1
+
+        self.TotalEnergy = 0
+        self.PrevEnergy = 0
+        self.HeatingEnergy = 0
+        self.WaterEnergy = 0
+        self.Heating = True
+        self.prefix = prefix
+
         log.info('Meters:')
         for meter in sorted(self.get_meters()):
             log.info('\t {} <--> {}'.format( meter['id'], meter['name']))
+
+        #Init and connect to MQTT server
+        mqtt.Client.__init__(self,client)
+        self.will_set( topic = "system/" + self.prefix, payload="Offline", qos=1, retain=True)
+
+        if user != None:
+            self.username_pw_set(user,password)
+
+        self.on_connect = self.mqtt_on_connect
+        self.on_message = self.mqtt_on_message
+
+        self.connect(server,keepalive=10)
+        self.publish(topic = "system/"+ self.prefix, payload="Online", qos=1, retain=True)
+
+        self.loop_start()
+
+    def SendMeterEvent(self,power,energy,heating,water):
+
+        topic = self.prefix+"/meterevent"
+
+        msg = json.dumps({"power":power,"energy":energy,"heating":heating,"water":water})
+
+        self.publish(topic,msg,1)
+
+        return
+
+
+    def mqtt_on_connect(self, client, userdata, flags, rc):
+        print "INFO: MQTT connected!"
+        self.subscribe("Verwarming/heating/State", 0)
+
+    def mqtt_on_message(self, client, userdata, msg):
+        if msg.topic == "Verwarming/heating/State":
+            if str(msg.payload) == "1":
+                self.Heating = True
+            else:
+                self.Heating = False
+        #if self.debug:
+        print("INFO: RECIEVED MQTT MESSAGE: "+msg.topic + " " + str(msg.payload))
+
+        return
 
     def get_meters(self):
         assert path.exists(self.meter_yaml), 'Meter map not found: %s' % self.meter_yaml
@@ -126,6 +185,19 @@ class DataCollector:
             try:
                 self.influx_client.write_points(json_body)
                 log.info(t_str + ' Data written for %d meters.' % len(json_body))
+                
+                Power = datas[2]['Active power Phase 1']
+                if self.PrevEnergy != 0:
+                    Energy = (datas[2]['Import active energy'] - self.PrevEnergy) * 1000
+                self.PrevEnergy = datas[2]['Import active energy']
+                self.TotalEnergy += Energy
+
+                if self.Heating == True:
+                    self.HeatingEnergy += Energy
+                if self.Heating == False:
+                    self.WaterEnergy += Energy
+                self.SendMeterEvent(str(Power),str(self.TotalEnergy),str(self.HeatingEnergy),str(self.WaterEnergy))
+
             except Exception as e:
                 log.error('Data not written!')
                 log.error(e)
@@ -198,3 +270,4 @@ if __name__ == '__main__':
     repeat(interval,
            max_iter=collector.max_iterations,
            func=lambda: collector.collect_and_store())
+
