@@ -1,20 +1,95 @@
-2021-08-02 11:28:59,518 - INFO - Started app
-2021-08-02 11:28:59,532 - INFO - Meters:
-2021-08-02 11:28:59,533 - INFO - Reloading meter map as file changed
-2021-08-02 11:28:59,570 - INFO - 	 1 <--> Warmtepomp
-2021-08-02 11:28:59,570 - INFO - 	 2 <--> Warmtepomp1f
-2021-08-02 11:28:59,578 - INFO - INFO: MQTT connected!
-2021-08-02 11:28:59,583 - INFO - INFO: RECIEVED MQTT MESSAGE: Verwarming/heating/State 1
-2021-08-02 11:29:59,636 - INFO - Collected 0 readouts
-2021-08-02 11:29:59,644 - DEBUG - Reading meter 2.
-2021-08-02 11:30:00,258 - DEBUG - Reading meter 1.
-2021-08-02 11:30:01,251 - INFO - 2021-08-02T10:29:59.637846Z Data written for 2 meters.
-2021-08-02 11:30:01,254 - INFO - MQTT published energy: 0.000
-2021-08-02 11:30:59,637 - DEBUG - Reading meter 2.
-2021-08-02 11:31:00,250 - DEBUG - Reading meter 1.
-2021-08-02 11:31:01,260 - INFO - 2021-08-02T10:30:59.636256Z Data written for 2 meters.
-2021-08-02 11:31:01,263 - INFO - MQTT published energy: 0.999
-2021-08-02 11:31:59,637 - DEBUG - Reading meter 2.
-2021-08-02 11:32:00,263 - DEBUG - Reading meter 1.
-2021-08-02 11:32:01,203 - INFO - 2021-08-02T10:31:59.636238Z Data written for 2 meters.
-2021-08-02 11:32:01,206 - INFO - MQTT published energy: 0.999
+2023-07-24 17:06:11,169 - INFO - Started app
+2023-07-24 17:06:11,296 - INFO - Meters:
+2023-07-24 17:06:11,297 - INFO - Reloading meter map as file changed
+2023-07-24 17:06:11,346 - INFO - 	 1 <--> Warmtepomp
+2023-07-24 17:06:11,356 - INFO - MQTT connected!
+2023-07-24 17:06:11,359 - INFO - RECIEVED MQTT MESSAGE: Verwarming/heating/State b'1' | heating= True
+2023-07-24 17:06:41,375 - INFO - Collected 0 readouts
+2023-07-24 17:06:41,377 - DEBUG - Reading meter 1.
+2023-07-24 17:06:41,958 - WARNING - IO Error while reading register 0 from meter 1. Retries left 9.
+2023-07-24 17:06:41,959 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:06:42,465 - WARNING - IO Error while reading register 0 from meter 1. Retries left 8.
+2023-07-24 17:06:42,466 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:06:42,985 - WARNING - IO Error while reading register 0 from meter 1. Retries left 7.
+2023-07-24 17:06:42,986 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:06:43,491 - WARNING - IO Error while reading register 0 from meter 1. Retries left 6.
+2023-07-24 17:06:43,492 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:06:43,998 - WARNING - IO Error while reading register 0 from meter 1. Retries left 5.
+2023-07-24 17:06:43,999 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:06:44,504 - WARNING - IO Error while reading register 0 from meter 1. Retries left 4.
+2023-07-24 17:06:44,505 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:06:45,010 - WARNING - IO Error while reading register 0 from meter 1. Retries left 3.
+2023-07-24 17:06:45,011 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:06:45,516 - WARNING - IO Error while reading register 0 from meter 1. Retries left 2.
+2023-07-24 17:06:45,517 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:06:46,022 - WARNING - IO Error while reading register 0 from meter 1. Retries left 1.
+2023-07-24 17:06:46,023 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:06:46,528 - WARNING - IO Error while reading register 0 from meter 1. Retries left 0.
+2023-07-24 17:06:46,529 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:06:46,530 - ERROR - 
+2023-07-24 17:07:11,366 - DEBUG - Reading meter 1.
+2023-07-24 17:07:11,947 - WARNING - IO Error while reading register 0 from meter 1. Retries left 9.
+2023-07-24 17:07:11,948 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:12,454 - WARNING - IO Error while reading register 0 from meter 1. Retries left 8.
+2023-07-24 17:07:12,455 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:12,961 - WARNING - IO Error while reading register 0 from meter 1. Retries left 7.
+2023-07-24 17:07:12,962 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:13,467 - WARNING - IO Error while reading register 0 from meter 1. Retries left 6.
+2023-07-24 17:07:13,469 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:13,974 - WARNING - IO Error while reading register 0 from meter 1. Retries left 5.
+2023-07-24 17:07:13,976 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:14,481 - WARNING - IO Error while reading register 0 from meter 1. Retries left 4.
+2023-07-24 17:07:14,482 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:14,987 - WARNING - IO Error while reading register 0 from meter 1. Retries left 3.
+2023-07-24 17:07:14,988 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:15,495 - WARNING - IO Error while reading register 0 from meter 1. Retries left 2.
+2023-07-24 17:07:15,496 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:16,001 - WARNING - IO Error while reading register 0 from meter 1. Retries left 1.
+2023-07-24 17:07:16,002 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:16,507 - WARNING - IO Error while reading register 0 from meter 1. Retries left 0.
+2023-07-24 17:07:16,508 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:16,509 - ERROR - 
+2023-07-24 17:07:41,372 - DEBUG - Reading meter 1.
+2023-07-24 17:07:41,956 - WARNING - IO Error while reading register 0 from meter 1. Retries left 9.
+2023-07-24 17:07:41,957 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:42,463 - WARNING - IO Error while reading register 0 from meter 1. Retries left 8.
+2023-07-24 17:07:42,464 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:42,970 - WARNING - IO Error while reading register 0 from meter 1. Retries left 7.
+2023-07-24 17:07:42,971 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:43,476 - WARNING - IO Error while reading register 0 from meter 1. Retries left 6.
+2023-07-24 17:07:43,477 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:43,981 - WARNING - IO Error while reading register 0 from meter 1. Retries left 5.
+2023-07-24 17:07:43,982 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:44,487 - WARNING - IO Error while reading register 0 from meter 1. Retries left 4.
+2023-07-24 17:07:44,488 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:44,993 - WARNING - IO Error while reading register 0 from meter 1. Retries left 3.
+2023-07-24 17:07:44,994 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:45,500 - WARNING - IO Error while reading register 0 from meter 1. Retries left 2.
+2023-07-24 17:07:45,501 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:46,006 - WARNING - IO Error while reading register 0 from meter 1. Retries left 1.
+2023-07-24 17:07:46,007 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:46,512 - WARNING - IO Error while reading register 0 from meter 1. Retries left 0.
+2023-07-24 17:07:46,512 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:07:46,513 - ERROR - 
+2023-07-24 17:08:11,373 - DEBUG - Reading meter 1.
+2023-07-24 17:08:11,931 - WARNING - IO Error while reading register 0 from meter 1. Retries left 9.
+2023-07-24 17:08:11,933 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:08:12,438 - WARNING - IO Error while reading register 0 from meter 1. Retries left 8.
+2023-07-24 17:08:12,439 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:08:12,945 - WARNING - IO Error while reading register 0 from meter 1. Retries left 7.
+2023-07-24 17:08:12,946 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:08:13,453 - WARNING - IO Error while reading register 0 from meter 1. Retries left 6.
+2023-07-24 17:08:13,455 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:08:13,960 - WARNING - IO Error while reading register 0 from meter 1. Retries left 5.
+2023-07-24 17:08:13,961 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:08:14,469 - WARNING - IO Error while reading register 0 from meter 1. Retries left 4.
+2023-07-24 17:08:14,470 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:08:14,976 - WARNING - IO Error while reading register 0 from meter 1. Retries left 3.
+2023-07-24 17:08:14,977 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:08:15,485 - WARNING - IO Error while reading register 0 from meter 1. Retries left 2.
+2023-07-24 17:08:15,486 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:08:15,991 - WARNING - IO Error while reading register 0 from meter 1. Retries left 1.
+2023-07-24 17:08:15,993 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:08:16,501 - WARNING - IO Error while reading register 0 from meter 1. Retries left 0.
+2023-07-24 17:08:16,502 - ERROR - No communication with the instrument (no answer)
+2023-07-24 17:08:16,505 - ERROR - 

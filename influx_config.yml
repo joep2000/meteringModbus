@@ -1,5 +1,4 @@
-host : '192.168.178.2'
-port : 8086
-user : ''
-password : ''
-dbname : 'db_meters'
+host : '192.168.2.2:8086'
+token: 'fKSXTXa1mQzStfuzR6pFr-R5TbefdIyp30a9BsSxz60WGSdic1cDHJ7-fKHWi-hYJoYn0kuzQ9of7I_6WA1hKQ=='
+org : 'thuis'
+dbname : 'db_meters/autogen'

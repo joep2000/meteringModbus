@@ -1,12 +1,12 @@
 meters:
-    - name : Warmtepomp1f
-      type : SDM120.yml
-      id : 2     # this is the slave address number
-      baudrate : 9600   # Baud
-      bytesize : 8
-      parity : none # none | odd | even
-      stopbits : 1
-      timeout  : 0.5   # seconds
+#    - name : Warmtepomp1f
+#      type : SDM120.yml
+#      id : 2     # this is the slave address number
+#      baudrate : 9600   # Baud
+#      bytesize : 8
+#      parity : none # none | odd | even
+#      stopbits : 1
+#      timeout  : 0.5   # seconds
     - name : Warmtepomp
       type : SDM630.yml
       id : 1     # this is the slave address number
